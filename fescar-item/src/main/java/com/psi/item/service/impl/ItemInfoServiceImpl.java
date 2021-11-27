@@ -10,7 +10,7 @@ import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 @Service
 //出现异常时回滚
-@Transactional(rollbackFor = Exception.class)
+//@Transactional(rollbackFor = Exception.class)
 public class ItemInfoServiceImpl implements ItemInfoService {
     @Autowired
     private ItemInfoMapper itemInfoMapper;

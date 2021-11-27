@@ -1,5 +1,6 @@
 package com.psi.business.service.impl;
 
+import com.alibaba.fescar.spring.annotation.GlobalTransactional;
 import com.psi.api.feign.OrderInfoFeign;
 import com.psi.api.feign.UserInfoFeign;
 import com.psi.api.pojo.LogInfo;
@@ -29,6 +30,10 @@ public class BusinessServiceImpl implements BusinessService {
      * @param id
      * @param count
      */
+    //添加全局事务，回滚所有“add”方法异常
+    //注意：controller、service千万不能try catch处理异常，
+    // 一定要抛出异常，要不然分布式事务不会生效
+    @GlobalTransactional(name = "add")
     @Override
     public void add(String username, int id, int count) {
         //添加订单日志
@@ -41,6 +46,7 @@ public class BusinessServiceImpl implements BusinessService {
         //添加订单
         orderInfoFeign.add(username, id, count);
 
+        //  int i = 1 / 0;//模拟异常
         //用户账户余额递减
         userInfoFeign.decrMoney(username, 10);
     }

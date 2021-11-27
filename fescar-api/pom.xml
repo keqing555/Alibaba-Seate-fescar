@@ -17,6 +17,12 @@
     </properties>
 
     <dependencies>
+        <!--分布式事务模块，引用api模块的微服务都继承该模块-->
+        <dependency>
+            <groupId>com.psi</groupId>
+            <artifactId>fescar-transaction</artifactId>
+            <version>1.0</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>

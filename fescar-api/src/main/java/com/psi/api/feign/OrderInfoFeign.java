@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface OrderInfoFeign {
     @PostMapping(value = "/orderInfo/add")
     public String add(@RequestParam(value = "username") String username,
-                      @RequestParam(value = "id") int id,
-                      @RequestParam(value = "count") int count);
+                      @RequestParam(value = "id") Integer id,
+                      @RequestParam(value = "count") Integer count);
 }

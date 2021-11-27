@@ -4,6 +4,7 @@ import com.psi.order.service.OrderInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -18,12 +19,15 @@ public class OrderInfoController {
      *
      * @param username
      * @param id
-     * @param money
+     * @param count
      * @return
      */
     @PostMapping("add")
-    public String add(String username, int id, int money) {
-        orderInfoService.add(username, id, money);
+    public String add(@RequestParam(value = "username") String username,
+                      @RequestParam(value = "id") Integer id,
+                      @RequestParam(value = "count") Integer count) {
+        orderInfoService.add(username, id, count);
         return "SUCCESS";
     }
+
 }

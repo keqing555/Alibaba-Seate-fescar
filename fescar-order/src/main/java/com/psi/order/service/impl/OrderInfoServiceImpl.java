@@ -27,7 +27,7 @@ public class OrderInfoServiceImpl implements OrderInfoService {
         //添加订单
         OrderInfo orderInfo = new OrderInfo();
         orderInfo.setMessage("订单:" + username);
-//        orderInfo.setMoney(10);
+        orderInfo.setMoney(10);
         int icount = orderInfoMapper.insert(orderInfo);
         System.out.println("添加订单受影响函数：" + icount);
 
